@@ -50,7 +50,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          sudo cat /etc/profile.d/maven.sh
+          cat /etc/profile.d/maven.sh
           echo "export JAVA_HOME=/usr/lib/jvm/default-java" | tee -a /etc/profile.d/maven.sh
           echo "export M2_HOME=/opt/maven" | tee -a /etc/profile.d/maven.sh 
           echo "export MAVEN_HOME=/opt/maven" | tee -a /etc/profile.d/maven.sh 
