@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: vitorcorajavagoof 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vitorcorajavagoof
+  template:
+    metadata:
+      labels:
+        app: vitorcorajavagoof 
+    spec:
+      containers:
+        - name: vitorcorajavagoof 
+          image: azdevopsnv.azurecr.io/vitorcorajavagoof
+          ports:
+          - containerPort: 80
