@@ -38,6 +38,10 @@ stages:
           sudo apt update -y
           sudo apt install maven -y
           mvn -version
+          scp ~/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.2/maven-dependency-plugin-2.2.jar gkahlout@192.168.344.511:/home/gkahlout
+          scp ~/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.2/maven-dependency-plugin-2.2.pom gkahlout@192.168.344.511:/home/gkahlout
+          mvn install:install-file -DgroupId=org.apache.maven.plugins -DartifactId=maven-dependency-plugin -Dversion=1.1 -Dfile=maven-dependency-plugin-2.2.jar -Dpackaging=jar
+          mvn dependency:get -DrepoUrl=http://download.java.net/maven/2/ -Dartifact=org.codehaus.mojo:tomcat-maven-plugin:1.1
     - task: SnykSecurityScan@1
       inputs:
         serviceConnectionEndpoint: 'Coratest'
