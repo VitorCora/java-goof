@@ -50,11 +50,11 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          sudo nano /etc/profile.d/maven.sh
-          sed -i -e "export JAVA_HOME=/usr/lib/jvm/default-java"  /etc/profile.d/maven.sh
-          sed -i -e "export M2_HOME=/opt/maven"  /etc/profile.d/maven.sh 
-          sed -i -e "export MAVEN_HOME=/opt/maven"  /etc/profile.d/maven.sh 
-          sed -i -e "export PATH=${M2_HOME}/bin:${PATH}"  /etc/profile.d/maven.sh
+          sudo cat /etc/profile.d/maven.sh
+          echo "export JAVA_HOME=/usr/lib/jvm/default-java" | tee -a /etc/profile.d/maven.sh
+          echo "export M2_HOME=/opt/maven" | tee -a /etc/profile.d/maven.sh 
+          echo "export MAVEN_HOME=/opt/maven" | tee -a /etc/profile.d/maven.sh 
+          echo "export PATH=${M2_HOME}/bin:${PATH}" | tee -a /etc/profile.d/maven.sh
           sudo chmod +x /etc/profile.d/maven.sh
           source /etc/profile.d/maven.sh
     - task: Bash@3
